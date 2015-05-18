@@ -86,7 +86,10 @@ if ($youtubeData) {
 $youtubeData = filter_var($youtubeData[1]['v'], FILTER_SANITIZE_URL);
 
 if (empty($youtubeData)) {
-    throw new Exception('Empty');
+    echo "YouTube data is empty. \n
+    e.g. http://www.thanhsguitar.com/projects/looper.php?v=https://www.youtube.com/watch?v=BXcvuylZ_FQ
+    ";
+
 }
 
 if (filter_var($youtubeData, FILTER_VALIDATE_URL) !== false) {
@@ -95,10 +98,13 @@ if (filter_var($youtubeData, FILTER_VALIDATE_URL) !== false) {
         $videoID = parseVideoURL($youtubeData);
 
     } catch (Exception $e) {
-        throw $e;
+        echo $e->getMessage();
 
     }
 
+} else {
+    $videoID = htmlentities($youtubeData);
+    
 }
 
 if ($videoID) {
@@ -107,17 +113,11 @@ if ($videoID) {
         displayVideo($videoID);
 
     } catch (Exception $e) {
-        throw $e;
+        echo $e->getMessage();
 
     }
 
 } else {
-    throw new Exception('videoID must not be empty.');
+    echo 'videoID must not be empty.';
 
 }
-
-
-
-
-
-
