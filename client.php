@@ -61,7 +61,7 @@ $html =  <<<HERE
 </head>
 <body>
 
-<iframe width="640" height="480" src="https://www.youtube.com/embed/$videoID?loop=1&autoplay=1&playlist=$videoID">
+<iframe width="640" height="480" src="https://www.youtube.com/embed/$videoID?loop=1&autoplay=1&playlist=$videoID" allowfullscreen>
 </iframe>
 
 </body>
